@@ -155,7 +155,9 @@ def run() -> None:
         "7": cmd_delete,
         "8": None,
     }
-    while True:
+    choice: Optional[str] = None
+    
+    while choice != "8":
         _print()
         _print("Телефонный справочник")
         _print("1. Открыть файл")
@@ -171,8 +173,8 @@ def run() -> None:
             if _maybe_prompt_save():
                 _print("До свидания!")
                 break
-            else:
-                continue
+            choice = None
+            continue
         action = actions.get(choice)
         if action is None:
             _print("Неизвестный пункт меню. Повторите ввод.")
